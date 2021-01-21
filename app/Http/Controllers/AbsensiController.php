@@ -28,7 +28,7 @@ class AbsensiController extends Controller
         $file = $request->file('file');
         $namaFile = md5(uniqid()) . '.' . $request->file('file')->getClientOriginalExtension();
         $path = $request->file('file')->move(storage_path() . '/laravel-excel/', $namaFile);
-        Excel::import(new AbsensiImport, $path);
+        Excel::import(new AbsensiImport, $request->file('file'));
         return rediect('absensi');
     }
 
