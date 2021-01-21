@@ -12,6 +12,7 @@ use App\Http\Controllers\IjazahController;
 use App\Http\Controllers\SertifikatController;
 use App\Http\Controllers\SKController;
 use App\Http\Controllers\InformasiPegawaiController;
+use App\Http\Controllers\AbsensiController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -56,6 +57,9 @@ Route::group(['middleware' => ['auth','CekLevel:super-admin']], function () {
     Route::get('/superAdmin/password/{id}', [SuperAdminController::class, 'edit'])->name("superAdminPassword");
     Route::post('/superAdmin/changePassword', [SuperAdminController::class, 'password'])->name("passwordSuperAdmin");
     Route::get('/superAdmin/destroy/{id}', [SuperAdminController::class, 'destroy'])->name("superAdminDestroy");
+    // absensi
+    Route::get('/absensi', [AbsensiController::class, 'index'])->name("absensi");
+    Route::post('/absensi/createImport', [AbsensiController::class, 'createImport'])->name("createImport");
 });
 
 Route::group(['middleware' => ['auth','CekLevel:kepegawaian']], function () {

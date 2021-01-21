@@ -25,6 +25,7 @@
               <li class="{{ set_active("superAdmin") }} {{ set_active("superAdminCreate") }} {{ set_active("superAdminShow") }} {{ set_active("superAdminPassword") }}"><a class="nav-link" href="{{ route("superAdmin") }}">Super Admin</a></li>
             </ul>
           </li>
+          <li class="{{ set_active('absensi') }}"><a class="nav-link" href="{{ route("absensi") }}"><i class="fas fa-list"></i> <span>Absensi</span></a></li>
           @elseif(auth()->user()->role == "kepegawaian")
           <li class="menu-header">Informasi</li>
           <li class="{{ set_active('informasiKetenagaan') }} {{ set_active('informasiKetenagaanShow') }}"><a class="nav-link" href="{{ route("informasiKetenagaan") }}"><i class="far fa-file"></i> <span>Informasi Ketenagaan</span></a></li>
